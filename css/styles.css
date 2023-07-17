@@ -6,7 +6,7 @@
   --black: #000000;
   --slate: #434455;
   --white: #ffffff;
-  --ocean: #2196f3;
+  --ocean: #404bbf;
   --cloud: #f4f4fd;
   --cornflower: #e7e9fc;
 }
@@ -116,12 +116,14 @@ body {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
-.position {
+.team .position {
   color: var(--slate);
   font-size: 16px;
   font-weight: 400;
+  text-align: center;
 }
 
 .studio-footer {
@@ -158,7 +160,7 @@ body {
 
 .button.filter:hover,
 .button.filter:focus,
-.button.filter:current {
+.button.filter.current {
   background-color: var(--ocean);
   color: var(--cloud);
 }
