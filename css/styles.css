@@ -21,6 +21,19 @@ body {
 .list {
   list-style-type: none;
 }
+/*for HW3*/
+.page-header {
+  padding: 32px;
+  background: var(--white);
+}
+.header-container {
+  display: flex;
+  align-items: center;
+} /*
+.header.nav {
+  display: flex;
+  align-items: center;
+}*/
 
 .logo-link {
   text-decoration: none;
@@ -29,6 +42,7 @@ body {
   font-weight: 800;
   line-height: 1.17;
   letter-spacing: 0.04em;
+  margin-right: 132px;
 }
 
 .logo {
@@ -45,6 +59,13 @@ body {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  margin-right: 132px;
+}
+
+/*HW3*/
+.header.nav {
+  display: flex;
+  align-items: center;
 }
 
 .nav-menu .page:hover,
