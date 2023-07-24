@@ -16,6 +16,7 @@ body {
   letter-spacing: 0.03em;
   color: var(--slate);
 }
+
 h1,
 h2,
 h3,
@@ -25,32 +26,44 @@ h6,
 p {
   margin: 0px;
 }
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-.container {
-  width: 1158px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-.page-header {
-  border-bottom: 1px solid var(--cornflower, #e7e9fc);
-  background: var(--white, #fff);
-  padding-top: 25.5px;
-  padding-bottom: 25.5px;
+
+.container {
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.page-header {
+  border-bottom: 1px solid var(--cornflower);
+}
+
 .link {
   text-decoration: none;
-  color: var(--slate);
+  color: inherit;
 }
 
 .logo.link {
@@ -69,6 +82,7 @@ img {
 .studio {
   color: var(--navyblue);
 }
+
 .menu,
 .navigation,
 .nav-menu,
@@ -76,32 +90,34 @@ img {
   display: flex;
   align-items: center;
 }
-.contacts-menu {
-  margin-left: auto;
-  display: flex;
-  gap: 40px;
-}
-.nav-menu {
-  margin-left: 76px;
-  gap: 40px;
-}
-.nav-menu .page {
+
+.nav-menu .page,
+.contacts-menu .contact {
   text-decoration: none;
   color: var(--navyblue);
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 31px;
 }
 
-.nav-menu .page:hover,
-.nav-menu .page:focus,
-.nav-menu .page.current,
-.contact-menu .item:hover,
-.contact-menu .item:focus {
-  color: var(--iris);
+.contacts-menu {
+  margin-left: auto;
+  gap: 40px;
+}
+.nav-menu {
+  margin-left: 93px;
+  gap: 40px;
 }
 
-.contact-menu .item {
+.nav-menu .item:not(:last-child) .contacts-menu .item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.contact-menu .contact {
   text-decoration: none;
   color: var(--slate);
   font-weight: 400;
@@ -109,14 +125,24 @@ img {
   letter-spacing: 0.02em;
 }
 
+.nav-menu .page:hover,
+.nav-menu .page:focus,
+.nav-menu .page.current,
+.contacts-menu .contact:hover,
+.contacts-menu .contact:focus {
+  color: var(--iris);
+}
+
 .bg-hero {
   background-color: var(--navyblue);
 }
+
 .hero {
   padding-top: 200px;
   padding-bottom: 200px;
   text-align: center;
 }
+
 .hero-title {
   color: var(--white);
   font-size: 56px;
@@ -134,25 +160,37 @@ img {
   background: var(--iris);
   line-height: 1.87;
   letter-spacing: 0.06em;
-  padding: 16px 32px;
+  padding: 10px 32px;
   font-size: 16px;
   font-weight: 500;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .button.primary:hover,
 .button.primary:focus {
   background-color: var(--ocean);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+
 .benefits {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.benefits .item {
+  flex-basis: calc(100% / 4 - 30px);
+  margin-left: 30px;
+  margin-top: 30px;
 }
 
 .benefits .title {
   color: var(--navyblue);
   font-size: 20px;
   font-weight: 500;
+  line-height: 1.14;
   margin-bottom: 10px;
 }
 
@@ -160,51 +198,83 @@ img {
   color: var(--slate);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.17;
+  line-height: 1.71;
 }
 
 .what-we-do {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  margin-left: -30px;
+  margin-top: -30px;
 }
+
+.what-we-do .item {
+  flex-basis: calc(100% / 3 - 30px);
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
 .section-title {
   color: var(--navyblue);
   font-size: 36px;
   line-height: 1.17;
+  font-weight: 700;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .section {
-  padding-top: 96px;
+  padding-top: 120px;
   padding-bottom: 120px;
 }
+
+.section.no-top-padding {
+  padding-top: 0;
+}
+
 .team {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  margin-top: 30px;
 }
+
 .team .item {
   border-radius: 0px 0px 4px 4px;
   background: var(--white, #fff);
-  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
-    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
-    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
-  padding-bottom: 32px;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+  padding-bottom: 30px;
+  flex-basis: calc(100% / 4 - 30px);
+  margin-left: 30px;
+  margin-top: 30px;
 }
+
+.team .name,
+.team .position {
+  text-align: center;
+  line-height: 1.19;
+}
+
 .team .name {
   color: var(--navyblue);
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  text-align: center;
+  padding-bottom: 10px;
+  padding: 30px;
 }
 
 .team .position {
   color: var(--slate);
   font-size: 16px;
   font-weight: 400;
-  text-align: center;
-  padding: 8px;
+}
+
+.substrate {
+  background-color: var(--white);
+  padding: 20px 24px;
+  border: 1px solid #eeeeee;
+  border-top: 0;
 }
 
 .studio-footer {
@@ -217,12 +287,19 @@ img {
 
 .page-footer {
   padding-top: 60px;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
+}
+
+.logo.footer {
+  margin-bottom: 20px;
 }
 
 .footer-description {
   color: var(--cloud);
-  padding-top: 20px;
+  padding-top: 17px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 /* Portfolio CSS*/
@@ -231,18 +308,17 @@ img {
   border-color: transparent;
   font-family: inherit;
   font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5px;
   letter-spacing: 0.03em;
   cursor: pointer;
   border-radius: 4px;
 }
+
 .filters {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 24px;
+  margin-bottom: 50px;
 }
+
 .button.filter {
   background: var(--cloud);
   color: var(--iris);
@@ -251,32 +327,44 @@ img {
   padding: 12px 24px;
 }
 
+.filters .space + .space {
+  margin-left: 8px;
+}
+
 .button.filter:hover,
 .button.filter:focus,
 .button.filter.current {
   background-color: var(--ocean);
   color: var(--cloud);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .projects {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  padding-top: 72px;
-  padding-bottom: 48px;
+  margin-left: -30px;
+  margin-top: -30px;
 }
 
-.name {
+.project-card {
+  flex-basis: calc(100% / 3 - 30px);
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.project .name {
   font-size: 20px;
   font-weight: 500;
   line-height: 2;
-  padding: 0px 16px;
   letter-spacing: 0.04em;
   color: var(--navyblue);
+  margin: 4px;
 }
-.type {
+
+.project .type {
   color: var(--slate);
   font-weight: 400;
   line-height: 1.87;
-  padding: 0px 16px;
+  font-size: 16px;
 }
